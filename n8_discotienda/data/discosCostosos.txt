@@ -1,0 +1,4 @@
+Informe de discos de Rock y Pop con precio menor a 1000
+=====================================================
+Nombre: xd Artista: xd Género: Pop Precio: 0.0
+Nombre: Blinglights Artista: TheWeeked Género: Pop Precio: 1000.0

@@ -532,23 +532,40 @@ public void generarInformeDiscos()throws FileNotFoundException
 	
 }
 
-// Modifica este método en la clase Discotienda
+/**
+ * Generar un informe que mustre solo los discos de Rock y Pop y que ademas no superen los 1000 pesos de precio
+ * @throws FileNotFoundException
+ */
 public void InformeRockPop() throws FileNotFoundException {
+	
+	//crear el archivo con la clase FILE
     File archivo = new File("./data/discosCostosos.txt");
+    
+	//crear la pluma para escribir el archivo
     PrintWriter pluma = new PrintWriter(archivo);
+    
+    //escribir con Peso pluma en el archivo
     pluma.println("Informe de discos de Rock y Pop con precio menor a 1000");
     pluma.println("=====================================================");
 
+	//escribir un reporte de discos solo de Rock y Pop que tengan un costo por debajo de 1000 pesos
+	//=============================================================================================
+
+    //recorrido sobre dichos discos
     for (int i = 0; i < discos.size(); i++) {
+    	
+    	//extraer informacion de cada disco
         Disco miDisco = (Disco) discos.get(i);
         if ((miDisco.darGenero().equalsIgnoreCase("Rock")&& miDisco.darPrecioDisco()<=1000 || miDisco.darGenero().equalsIgnoreCase("Pop")&& miDisco.darPrecioDisco()<=1000)) {
+        	
+        //escribir con la pluma la informacion requerida
             pluma.println("Nombre: " + miDisco.darNombreDisco() +
                           " Artista: " + miDisco.darArtista() +
                           " Género: " + miDisco.darGenero()+
                           " Precio: " + miDisco.darPrecioDisco());
         }
     }
-
+	//Cerrar pluma	
     pluma.close();
 }
 

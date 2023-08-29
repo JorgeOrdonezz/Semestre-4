@@ -168,18 +168,19 @@ public class Proyecto {
     
     
     private static void modificarAlumno(ArrayList<Alumno> misAlumnos, Scanner lector) {
-        System.out.println("--------Modificar datos de alumno--------");
+        System.out.println("------cambiar datos de alumno--------");
 
         System.out.println("Ingrese el número de cédula del alumno que desea modificar");
-        int cedulaM = lector.nextInt();
         boolean modificar = false; 
-
+       // se lee un número entero ingresado por el usuario y se almacena en la variable cedulaM.
+        int cedulaEst = lector.nextInt();
+   
         Iterator<Alumno> iterador = misAlumnos.iterator();
 
         while (iterador.hasNext()) {
-            Alumno alumnoModificado = iterador.next();
+            Alumno alumnoCamb = iterador.next();
 
-            if (alumnoModificado.getCedula() == cedulaM) {
+            if (alumnoCamb.getCedula() == cedulaEst) {
                 System.out.println("Seleccione el dato que desea modificar:");
                 System.out.println("1. Nombre");
                 System.out.println("2. Apellido");
@@ -187,46 +188,47 @@ public class Proyecto {
                 System.out.println("4. Correo");
                 System.out.println("5. Celular");
                 int opcionDato = lector.nextInt();
-
+                // vamos a utilizar un switch para poder seleccionar el dato
+                // que necesitemos cambiar y se guarda en una variable
                 switch (opcionDato) {
                     case 1:
                         System.out.println("Introduzca nuevo nombre del alumno:");
                         String nuevoNombre = lector.next();
-                        alumnoModificado.setNombre(nuevoNombre);
+                        alumnoCamb.setNombre(nuevoNombre);
                         break;
                     case 2:
                         System.out.println("Introduzca nuevo apellido del alumno:");
                         String nuevoApellido = lector.next();
-                        alumnoModificado.setApellido(nuevoApellido);
+                        alumnoCamb.setApellido(nuevoApellido);
                         break;
                     case 3:
                         System.out.println("Introduzca nuevo semestre del alumno:");
                         int nuevoSemestre = lector.nextInt();
-                        alumnoModificado.setSemestre(nuevoSemestre);
+                        alumnoCamb.setSemestre(nuevoSemestre);
                         break;
                     case 4:
                         System.out.println("Introduzca nuevo correo del alumno:");
                         String nuevoCorreo = lector.next();
-                        alumnoModificado.setCorreo(nuevoCorreo);
+                        alumnoCamb.setCorreo(nuevoCorreo);
                         break;
                     case 5:
                         System.out.println("Introduzca el nuevo celular del alumno:");
                         int nuevoCelular = lector.nextInt();
-                        alumnoModificado.setCelular(nuevoCelular);
+                        alumnoCamb.setCelular(nuevoCelular);
                         break;
                     default:
-                        System.out.println("Opción inválida.");
+                        System.out.println("Opción incorrecta.");
                         break;
                 }
 
-                System.out.println("Se modificaron los datos del alumno con la siguiente cédula: " + cedulaM);
+                System.out.println("Se modificaron los datos del alumno con la siguiente cédula: " + cedulaEst);
                 modificar = true;
                 break;
             }
         }
 
         if (!modificar) {
-            System.out.println("No se encontró un alumno con la cédula: " + cedulaM);
+            System.out.println("No se encontró un alumno con la cédula: " + cedulaEst);
         }
 
         if (misAlumnos.isEmpty()) {

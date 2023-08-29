@@ -1,0 +1,9 @@
+Reporte de estudiantes semestre: 2
+-----------------------
+Cédula: 21355
+Nombre: jorge
+Apellido: ordoñez
+Semestre: 2
+Correo: wrefrferf
+Celular: 32165
+---------------------------
